@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<suite name="App automation" parallel="classes" thread-count="1">
+
+
+	<groups>
+		<run>
+			<include name="api_tests" />
+			<include name="appium_tests" />
+		</run>
+	</groups>
+
+
+	<test name="Login test">
+
+		<parameter name="email" value="prasadmadgegmail.com" />
+		<parameter name="password" value="DUMMPY_Password" />
+		<classes>
+			<class name="com.appium.test.LoginPageTest" />
+		</classes>
+
+	</test>
+
+	<test name="Home Page Validation test">
+
+		<parameter name="email" value="prasadmadge@gmail.com" />
+		<parameter name="password" value="vivy@test007" />
+		<classes>
+			<class name="com.appium.test.HomePageValidation" />
+		</classes>
+
+	</test>
+
+	<test name="API tests">
+
+		<classes>
+			<class name="com.API.test.DoctorsAPIs" />
+		</classes>
+
+	</test>
+
+
+</suite>
