@@ -1,5 +1,7 @@
 package com.appium.test;
 
+import static org.testng.Assert.assertEquals;
+
 import java.util.List;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -23,19 +25,17 @@ public class HomePageValidation extends BaseTestClass {
 
 		appLogin(email, password); // app login
 		
-		// waiting for the SMS
+		// waiting for the SMS till 10 seconds
 		try {
 			Thread.sleep(10000);
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
+		// reading SMS through notifications
 
 		driver.openNotifications();
-
-		// String smsBody = new WebDriverWait(driver, 90L)
-		// .until(ExpectedConditions.presenceOfElementLocated(MobileBy.AndroidUIAutomator("new
-		// UiSelector().textContains(\"ist dein Vivy Bestätigungscode\")"))).getText();
 
 		List<MobileElement> smses = driver.findElements(
 				MobileBy.AndroidUIAutomator("new UiSelector().textContains(\"ist dein Vivy Bestätigungscode\")"));
@@ -68,9 +68,6 @@ public class HomePageValidation extends BaseTestClass {
 		new WebDriverWait(driver, 90L).until(ExpectedConditions
 				.presenceOfElementLocated(MobileBy.id("eu.uvita:id/activity_export_private_key_skip"))).click();
 
-		// save private key =
-		// eu.uvita:id/activity_export_private_key_welcome_button_password
-
 		// waiting for the home page to launch and click
 		new WebDriverWait(driver, 90L).until(ExpectedConditions
 				.presenceOfElementLocated(MobileBy.xpath("//android.widget.ImageButton[@content-desc='Navigate up']")))
@@ -78,7 +75,8 @@ public class HomePageValidation extends BaseTestClass {
 
 		MobileElement emailHomePage = driver.findElement(MobileBy.id("eu.uvita:id/home_activity_email_text_view"));
 		String emailName = emailHomePage.getText();
-		System.out.println(emailName);
+		
+		assertEquals(emailName, email, "Email name does not matches on home page after login");
 
 	}
 

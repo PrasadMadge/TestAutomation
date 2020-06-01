@@ -50,8 +50,7 @@ public class BaseTestClass {
 		caps.setCapability(MobileCapabilityType.PLATFORM_VERSION, "10");
 		caps.setCapability(MobileCapabilityType.AUTOMATION_NAME, AutomationName.ANDROID_UIAUTOMATOR2);
 		caps.setCapability(MobileCapabilityType.NO_RESET, false);
-		caps.setCapability(MobileCapabilityType.UDID, "3af79ef5");
-
+		
 		// capabilities for apk
 		caps.setCapability(AndroidMobileCapabilityType.APP_PACKAGE, "eu.uvita");
 		caps.setCapability(AndroidMobileCapabilityType.APP_ACTIVITY, "eu.uvita.ui.splash.SplashActivity");
