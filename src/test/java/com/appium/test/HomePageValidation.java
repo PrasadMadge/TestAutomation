@@ -27,7 +27,7 @@ public class HomePageValidation extends BaseTestClass {
 		
 		// waiting for the SMS till 10 seconds
 		try {
-			Thread.sleep(10000);
+			Thread.sleep(10000);  // I know its hardcoded but it seems that there is no API to detect new notifications in appium
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -44,10 +44,9 @@ public class HomePageValidation extends BaseTestClass {
 		String otp = giveOTP(smsBody);
 		System.out.println(otp);
 
-		driver.pressKey(new KeyEvent(AndroidKey.BACK));
+		driver.pressKey(new KeyEvent(AndroidKey.BACK)); // getting back to app
 
-		// System.out.println(driver.getPageSource());
-
+		
 		MobileElement pin = driver.findElement(MobileBy.id("eu.uvita:id/inputPIN"));
 		pin.sendKeys(otp);
 
@@ -76,7 +75,7 @@ public class HomePageValidation extends BaseTestClass {
 		MobileElement emailHomePage = driver.findElement(MobileBy.id("eu.uvita:id/home_activity_email_text_view"));
 		String emailName = emailHomePage.getText();
 		
-		assertEquals(emailName, email, "Email name does not matches on home page after login");
+		assertEquals(emailName, email, "Email name does not matches on home page");
 
 	}
 
