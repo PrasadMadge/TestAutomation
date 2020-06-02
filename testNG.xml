@@ -11,9 +11,9 @@
 	</groups>
 
 
-	<test name="Login test">
+	<test name="Login test"> <!-- Mobile test here -->
 
-		<parameter name="email" value="prasadmadgegmail.com" />
+		<parameter name="email" value="dummyemail.com" /> <!-- test with wrong credentials -->
 		<parameter name="password" value="DUMMPY_Password" />
 		<classes>
 			<class name="com.appium.test.LoginPageTest" />
@@ -23,7 +23,7 @@
 
 	<test name="Home Page Validation test">
 
-		<parameter name="email" value="prasadmadge@gmail.com" />
+		<parameter name="email" value="correctemailhere.com" /> <!-- please add correct credentials here here -->
 		<parameter name="password" value="vivy@test007" />
 		<classes>
 			<class name="com.appium.test.HomePageValidation" />
@@ -31,7 +31,7 @@
 
 	</test>
 
-	<test name="API tests">
+	<test name="API tests"> <!-- API test here -->
 
 		<classes>
 			<class name="com.API.test.DoctorsAPIs" />
